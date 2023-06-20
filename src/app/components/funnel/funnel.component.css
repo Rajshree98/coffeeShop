@@ -1,0 +1,218 @@
+img {
+    align-self: center;
+  }
+  .badgeStyle {
+    background-color: #9d1c30;
+    border-radius: 0%;
+  }
+  .roastBadgeStyle {
+    position: absolute;
+    background-color: rgb(157, 28, 48);
+    top: 9%;
+    left: 10%;
+    border-radius: 0%;
+  }
+  ins {
+    text-decoration: none;
+  }
+  .card {
+    border-radius: 0px;
+    cursor: pointer;
+  }
+  .card:hover {
+    border-color: #9d1c30;
+    border-width: 2px;
+  }
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-family: Montserrat;
+    color: #1a1818;
+    margin-top: 5vh;
+    margin-bottom: 4vh;
+  }
+  .qtyStyle {
+    color: #979792;
+    font-size: 22px;
+    margin-bottom: 1% !important;
+    font-weight: bold;
+  }
+  
+  .priceStyle {
+    font: normal normal normal 12px Roboto;
+    color: #1a1818;
+    margin-bottom: 0% !important;
+  }
+  .weightStyle {
+    color: #5c5c54;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: bold;
+  }
+  
+  ins {
+    color: #9d1c30;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  mat-tab {
+    height: 100%;
+  }
+  .coffeeImg {
+    width: 90%;
+    margin-top: 5%;
+  }
+  .coffeeName {
+    margin-bottom: 0px;
+    color: #1a1818;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .coffeeType {
+    font-size: 10px;
+    font-weight: 500;
+    color: #5c5c54;
+  }
+  .grindType {
+    color: #979792;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .grindImg {
+    margin: 25%;
+    height: 8vh;
+  }
+  .beanImg {
+    color: #1a1818;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 4%;
+    margin-bottom: 8%;
+  }
+  .statementStyle {
+    position: absolute;
+    color: #979792;
+    font-size: 18px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    font-weight: bold;
+  }
+  .statementCard {
+    position: relative;
+    height: 15vh;
+  }
+  .subMessageStyle {
+    color: #1a1818;
+    font-size: 12px;
+    text-align: center;
+  }
+  .addOnImg {
+    width: 85%;
+    margin-top: 5%;
+  }
+  .addOnsName {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .selectedBtn {
+    background-color: #9d1c30;
+    color: #fff;
+    border-radius: 0px;
+    width: 85%;
+    align-self: center;
+    margin-bottom: 5%;
+  }
+  .orderStyle {
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 2vh !important;
+  }
+  .summarySubText {
+    text-align: center;
+  }
+  .coffeeImage {
+    width: 70%;
+    margin: 8%;
+    margin-bottom: 4% !important;
+  }
+  .coffeeforWhom {
+    color: #979792;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .tableHeads {
+    font-weight: bold;
+  }
+  .newBagStyle {
+    color: #9d1c30;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .checkoutStyle {
+    background-color: #9d1c30;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 0px;
+    width: 100%;
+  }
+  .shipmentStyle {
+    font-size: 10px;
+  }
+  .checkoutArea {
+    font-size: 12px;
+  }
+  .lastpriceStyle {
+    text-align: right;
+  }
+  .tableHeadsPrice {
+    font-weight: bold;
+    text-align: right;
+  }
+  .editStyle {
+    color: #9d1c30;
+    font-size: 12px;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  .checkoutCard {
+    border: 0px;
+    cursor: default;
+  }
+  .checkoutWeightStyle {
+    font-size: 10px;
+    font-weight: bold;
+    color: #9d1c30;
+  }
+  .checkoutDelMes {
+    font-size: 10px;
+    font-weight: 500;
+    color: #1a1818;
+  }
+  .navtnStyle {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  icon-shape {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .icon-sm {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  .qtySelectedStyle {
+    color: #9d1c30;
+  }
+  

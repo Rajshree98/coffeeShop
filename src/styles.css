@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+body{
+    height: 100%;
+    background-color: #F5F5F5;
+}
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{
+    color: #9D1C30ed !important;
+  
+}
+.mat-mdc-tab .mdc-tab-indicator__content--underline {
+    border-color:rgba(0, 0, 0, 0.6) !important;
+}
+.mat-mdc-tab-body-content[style*="visibility: hidden"]{
+    overflow: hidden !important;
+}
+.mat-mdc-tab-body-content {
+    height: fit-content !important; 
+   overflow: hidden !important;
+}

@@ -1,0 +1,36 @@
+.titleStyle {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 2%;
+    font-weight: bold;
+  }
+  .card:hover {
+    border-color: #9d1c30;
+    border-width: 2px;
+    cursor: pointer;
+  }
+  .card {
+    border-radius: 0%;
+  }
+  .coffeeImage {
+    width: 80%;
+    height: 32vh;
+    margin: 8%;
+    margin-bottom: 4% !important;
+  }
+  .coffeeforWhom {
+    color: #979792;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .weightStyle {
+    font-size: 10px;
+    font-weight: bold;
+    color: #9d1c30;
+  }
+  .coffeeMessage {
+    font-size: 10px;
+    font-weight: 500;
+    color: #1a1818;
+  }
+  

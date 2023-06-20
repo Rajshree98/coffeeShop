@@ -1,0 +1,196 @@
+<div class="container">
+    <div class="row my-5">
+      <div class="col-1 mt-2">
+        <button class="btn" (click)="back()">
+          <img src="../assets/images/Icon feather-arrow-down.png">
+          <span class="ps-1  navtnStyle"> BACK</span>
+        </button>
+      </div>
+      <div class="col-10">
+        <mat-tab-group animationDuration="0ms" (selectedTabChange)="tabChanged($event)" [(selectedIndex)]="tabIndex">
+          <mat-tab label="Bag Selection">
+            <h1>How many bags of coffee would you like?</h1>
+            <div class="row">
+              <div class="col-4" *ngFor="let data of cardData">
+                <div class="card" (click)="coffeChosen(data)">
+                  <h4>
+                    <span class="badge badgeStyle p-2 m-2" [ngStyle]="{'background-color':data.offer ===' '? '#fff':'#9D1C30' }">{{data.offer}}</span>
+                  </h4>
+                  <img [src]="data.image" />
+                  <div class="row px-4 mt-3">
+                    <h5 class="qtyStyle">{{data.qty}}</h5>
+                    <span class="priceStyle">
+                      <p class="my-1" *ngIf="data.shipCharge==='Free'else elseBlock">
+                        <del> {{data.price}}</del>
+                        <ins> {{data.discountedPrice}} + {{data.shipCharge}} shipping</ins>
+                      </p>
+                      <ng-template #elseBlock>
+                        <p class="my-1"> {{data.price}} + {{data.shipCharge}} shipping </p>
+                      </ng-template>
+                    </span>
+                    <p class="weightStyle">({{data.weight}} TOTAL)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Roast Preference">
+            <h1>YOU HAVE SELECTED <span class="qtySelectedStyle">{{totalCoffeeSeleced}}/{{checkoutData.bags}}</span>
+            </h1>
+            <div class="row">
+              <div class="col-3 mb-5" *ngFor="let data of coffeeData;let i=index;">
+                <div class="card" (click)="roastPreference(data.name)">
+                  <img [src]="data.img" class="coffeeImg">
+                  <div class="px-3">
+                    <h4>
+                      <span class="badge roastBadgeStyle" [ngStyle]="{'background-color':data.roastType ===' '? 'transparent':'#9D1C30' }">{{data.roastType}}</span>
+                    </h4>
+                    <h2 class="coffeeName"> {{data.name}}</h2>
+                    <div class="coffeeType"> {{data.type}}</div>
+                    <div class="input-group w-auto mb-3">
+                      <button type="btn" class="button-minus border rounded-circle  icon-shape icon-sm " (click)="decreaseQty(data,i)">-</button>
+                      <input type="number" step="1" max="4" id="demoInput" [(ngModel)]="data.qty" class="quantity-field border-0 text-center w-25" disabled>
+                      <button type="btn" class="button-plus border rounded-circle icon-shape icon-sm " (click)="increaseQty(data,i)">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Grind Type">
+            <h1>Choose your grind type.</h1>
+            <div class="row">
+              <div class="col-2" *ngFor="let data of grindData">
+                <div class="card" (click)="getGrindType(data)">
+                  <img class="grindImg" [src]="data.img">
+                  <div class="grindType px-4">{{data.grindType}}</div>
+                  <div class="beanImg px-4"> {{data.beanType}}</div>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Frequency">
+            <h1>How would you like to receive your coffee?</h1>
+            <div class="row">
+              <div class="col-4" *ngFor="let data of subData">
+                <div class="card statementCard" (click)="getFrequencyData(data.subStatement)">
+                  <span class="statementStyle">{{data.subStatement}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="row pt-5">
+              <span class="subMessageStyle">
+                <img src="../assets/images/Group 466.png">{{subMessage}}
+              </span>
+            </div>
+          </mat-tab>
+          <mat-tab label="Add Ons">
+            <h1>Select Add Ons:</h1>
+            <div class="row">
+              <div class="col-3" *ngFor="let data of addOns">
+                <div class="card">
+                  <img [src]="data.img" class="addOnImg">
+                  <h2 class="addOnsName px-3">{{data.name}}</h2>
+                  <button type="button" class="btn selectedBtn" (click)="getAddons(data.name)">Selected</button>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Summary">
+            <h1 class="orderStyle">Order Summary</h1>
+            <h5 class="summarySubText mb-4">You'll be able to change or cancel the subscription anytime.</h5>
+            <div class="card checkoutCard">
+              <div class="row">
+                <div class="col-4">
+                  <img [src]="checkoutData.img" class="coffeeImage">
+                  <div>
+                    <span class="coffeeforWhom mx-4">{{checkoutData.purpose}}</span>
+                    <p class="mx-4 checkoutDelMes">
+                      <span class="checkoutWeightStyle ">{{checkoutData.weight}}</span> . {{checkoutData.message}}
+                    </p>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <span class="tableHeads">Amount </span>
+                          <p>{{checkoutData.amount}}</p>
+                        </td>
+                        <td class="editStyle" (click)="edit(0)">Edit</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="tableHeads">ROASTED PREFERENCE</span>
+                          <p>{{this.checkoutData.roastedPreference}} </p>
+                        </td>
+                        <td class="editStyle" (click)="edit(1)">Edit</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="tableHeads">GRIND TYPE</span>
+                          <p> {{this.checkoutData.grindType}} . {{this.checkoutData.beanType}}</p>
+                        </td>
+                        <td class="editStyle" (click)="edit(2)">Edit</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="tableHeads">FREQUENCY</span>
+                          <p>{{this.checkoutData.freq}} </p>
+                        </td>
+                        <td class="editStyle" (click)="edit(3)">Edit</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <span class="tableHeads" >ADD-ONS:</span>
+                          <p>{{this.checkoutData.addOns}}</p>
+                        </td>
+                        <td class="editStyle" (click)="edit(4)">Edit</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-4">
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="checkoutArea">
+                          <span class="mb-5">Coffee:</span>
+                          <p class="mt-2">Shipping:</p>
+                        </td>
+                        <td class="lastpriceStyle">
+                          <span class="mb-5">{{checkoutData.price}}</span>
+                          <p class="mt-2"> {{checkoutData.shipCharge}}</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="tableHeads">Subtotal:</td>
+                        <td class="tableHeadsPrice">
+                          <span *ngIf="checkoutData.shipCharge!=='Free'">${{+(checkoutData.price.split('$')[1]) + +(checkoutData.shipCharge.split('$')[1])}}</span>
+                          <span *ngIf="checkoutData.shipCharge==='Free'">{{checkoutData.price}}</span>
+                          <p class="shipmentStyle">per shipment</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <button type="button" class="btn btn-lg checkoutStyle">Checkout</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <span class="newBagStyle px-4" (click)="addNewBag()"> + ADD TO BAG AND CONTINUE SHOPPING</span>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="col-1 mt-2">
+        <button class="btn" (click)="next()" [ngStyle]="{'display':tabIndex===5?'none':'block'}">
+          <span class="pe-1 pt-2 navtnStyle">NEXT </span>
+          <img src="../assets/images/Icon feather-arrow-down-1.png">
+        </button>
+      </div>
+    </div>
+  </div>

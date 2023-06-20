@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="titleStyle">Who is this for?</h1>
+  <div class="row">
+    <div class="col-4" *ngFor="let data of coffeeSelected">
+      <div class="card" (click)="coffeeSelection(data)">
+        <img [src]="data.img" class="img-fluid coffeeImage">
+        <p class="coffeeforWhom mx-4 mb-0">{{data.purpose}}</p>
+        <p class="mx-4 coffeeMessage">
+          <span class="weightStyle ">{{data.weight}}</span> . {{data.message}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
